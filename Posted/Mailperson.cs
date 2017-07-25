@@ -5,10 +5,10 @@ namespace Posted
 {
     public interface MailPerson
     {
-        void Send(IEnumerable<Stamp> stamps);
+        void Send(Envelope envelope);
     }
 
-    sealed class DefaultMailPerson : MailPerson
+    public sealed class DefaultMailPerson : MailPerson
     {
         private readonly Wire _wire;
 
@@ -17,10 +17,10 @@ namespace Posted
             _wire = wire;
         }
 
-        public void Send(IEnumerable<Stamp> stamps)
+        public void Send(Envelope envelope)
         {
-            var message = new DefaultEnvelope(stamps).Unwrap();
-            SmtpClient transport = _wire.Connect();
+            var message = envelope.Unwrap();
+            var transport = _wire.Connect();
             try
             {
                 transport.Send(message);

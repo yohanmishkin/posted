@@ -2,7 +2,7 @@
 
 namespace Posted
 {
-    interface Wire
+    public interface Wire
     {
         SmtpClient Connect();
     }
