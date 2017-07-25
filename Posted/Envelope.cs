@@ -19,11 +19,6 @@ namespace Posted
             _stamps = stamps;
         }
 
-        public DefaultEnvelope(Envelope envelope)
-        {
-
-        }
-
         public MailMessage Unwrap()
         {
             var message = new MailMessage();

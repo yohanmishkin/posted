@@ -1,28 +1,39 @@
-﻿using System;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using System.Collections.Generic;
+using System.Net.Mail;
 
 namespace Posted
 {
     public interface MailPerson
     {
-        void Send(Envelope envelope);
+        void Send(IEnumerable<Stamp> stamps);
     }
 
-    sealed class DefaultMailperson : MailPerson
+    sealed class DefaultMailPerson : MailPerson
     {
-        public void Send(Envelope envelope)
+        private readonly Wire _wire;
+
+        public DefaultMailPerson(Wire wire)
         {
-            var message = new DefaultEnvelope(envelope).Unwrap();
-            var transport = _wire.Connect();
+            _wire = wire;
+        }
+
+        public void Send(IEnumerable<Stamp> stamps)
+        {
+            var message = new DefaultEnvelope(stamps).Unwrap();
+            SmtpClient transport = _wire.Connect();
             try
             {
-                final Address[] rcpts = message.getAllRecipients();
-                transport.sendMessage(message, rcpts);
+                transport.Send(message);
             }
             finally
             {
                 Close(transport);
             }
+        }
+
+        private void Close(SmtpClient transport)
+        {
+            transport.Dispose();
         }
     }
 }
