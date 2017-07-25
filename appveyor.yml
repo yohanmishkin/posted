@@ -1,0 +1,8 @@
+version: 1.0.{build}
+build:
+  publish_nuget: true
+  verbosity: minimal
+deploy:
+- provider: NuGet
+  api_key:
+    secure: y9noy4A42pp9KcZurIOcCXDBkFu1GKbPFQUtPn74FKeDQwMHX3M31U1NpNn6caV6
