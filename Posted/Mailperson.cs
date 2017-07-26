@@ -1,10 +1,12 @@
 ﻿using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace Posted
 {
     public interface MailPerson
     {
         void Send(Envelope envelope);
+        Task SendAsync(Envelope envelope);
     }
 
     public sealed class DefaultMailPerson : MailPerson
@@ -23,6 +25,20 @@ namespace Posted
             try
             {
                 transport.Send(message);
+            }
+            finally
+            {
+                Close(transport);
+            }
+        }
+
+        public async Task SendAsync(Envelope envelope)
+        {
+            var message = envelope.Unwrap();
+            var transport = _wire.Connect();
+            try
+            {
+                await transport.SendMailAsync(message);
             }
             finally
             {
