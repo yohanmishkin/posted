@@ -43,6 +43,7 @@
     <Compile Include="MailPerson\DefaultMailPerson.cs" />
     <Compile Include="Envelope.cs" />
     <Compile Include="MailPerson\FakeMailPerson.cs" />
+    <Compile Include="Stamp\StampFrom.cs" />
     <Compile Include="Wire\FileWire.cs" />
     <Compile Include="Envelope\HtmlEnvelope.cs" />
     <Compile Include="MailPerson.cs" />
