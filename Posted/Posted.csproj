@@ -40,10 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MailPerson\DefaultMailPerson.cs" />
     <Compile Include="Envelope.cs" />
+    <Compile Include="MailPerson\FakeMailPerson.cs" />
+    <Compile Include="Wire\FileWire.cs" />
+    <Compile Include="Envelope\HtmlEnvelope.cs" />
     <Compile Include="MailPerson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wire\SmtpWire.cs" />
     <Compile Include="Stamp.cs" />
+    <Compile Include="Stamp\StampBcc.cs" />
+    <Compile Include="Stamp\StampCc.cs" />
+    <Compile Include="Stamp\StampSubject.cs" />
+    <Compile Include="Stamp\StampTo.cs" />
     <Compile Include="Wire.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
