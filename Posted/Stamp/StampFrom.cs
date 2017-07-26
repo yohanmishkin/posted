@@ -13,7 +13,7 @@ namespace Posted
 
         public void Attach(MailMessage message)
         {
-            message.To.Add(_sender);
+            message.From = new MailAddress(_sender);
         }
     }
 }
