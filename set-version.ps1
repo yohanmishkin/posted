@@ -8,11 +8,11 @@ Write-Host "Updating nuget version for project $project";
 
 [xml]$nuspec = Get-Content $path;
 if ($isRelease) {
-  $nuspec.package.metadata.version = '$version';
-  Write-Host 'Set version to "$version"';
+  $nuspec.package.metadata.version = $version;
+  Write-Host 'Set version to $(version)';
 } else {
-  $nuspec.package.metadata.version = '$version-beta';
-  Write-Host 'Set version to "$version"-beta';
+  $nuspec.package.metadata.version = '$(version)-beta';
+  Write-Host 'Set version to $version-beta';
 }
 
 $nuspec.Save($path);
