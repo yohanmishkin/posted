@@ -1,4 +1,5 @@
-﻿using System.Net.Mail;
+﻿using System.Collections.Generic;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace Posted
@@ -49,6 +50,26 @@ namespace Posted
         private void Close(SmtpClient transport)
         {
             transport.Dispose();
+        }
+    }
+
+    public sealed class TestMailPerson : MailPerson
+    {
+        public readonly List<MailMessage> DeliveredMail;
+
+        public TestMailPerson()
+        {
+            DeliveredMail = new List<MailMessage>();
+        }
+
+        public void Send(Envelope envelope)
+        {
+            DeliveredMail.Add(envelope.Unwrap());
+        }
+
+        public async Task SendAsync(Envelope envelope)
+        {
+            await Task.Run(() => DeliveredMail.Add(envelope.Unwrap()));
         }
     }
 }
