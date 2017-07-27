@@ -4,13 +4,13 @@ using DynamicExpression = System.Linq.Dynamic.DynamicExpression;
 
 namespace Posted
 {
-    public sealed class HtmlEmailTemplate : LetterTemplate
+    public sealed class EmailTemplate : LetterTemplate
     {
         private readonly string _subject;
         private readonly string _template;
         private readonly object _model;
 
-        public HtmlEmailTemplate(string subject, string template, object model)
+        public EmailTemplate(string subject, string template, object model)
         {
             _subject = subject;
             _template = template;

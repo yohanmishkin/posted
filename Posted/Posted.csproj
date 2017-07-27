@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LetterTemplate.cs" />
-    <Compile Include="LetterTemplates\HtmlEmailTemplate.cs" />
+    <Compile Include="LetterTemplates\EmailTemplate.cs" />
     <Compile Include="MailPeople\DefaultMailPerson.cs" />
     <Compile Include="Envelope.cs" />
     <Compile Include="MailPeople\FakeMailPerson.cs" />

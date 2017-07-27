@@ -56,7 +56,7 @@
   <ItemGroup>
     <Compile Include="ComplexClass.cs" />
     <Compile Include="SimpleClass.cs" />
-    <Compile Include="HtmlEmailTemplateTests.cs" />
+    <Compile Include="EmailTemplateTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
