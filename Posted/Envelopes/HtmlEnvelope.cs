@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Net.Mail;
 
-namespace Posted.Envelopes
+namespace Posted
 {
     public sealed class HtmlEnvelope : Envelope
     {

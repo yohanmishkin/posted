@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using DynamicExpression = System.Linq.Dynamic.DynamicExpression;
 
-namespace Posted.LetterTemplates
+namespace Posted
 {
     public sealed class HtmlEmailTemplate : LetterTemplate
     {

@@ -2,7 +2,7 @@
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace Posted.MailPeople
+namespace Posted
 {
     public sealed class FakeMailPerson : MailPerson
     {

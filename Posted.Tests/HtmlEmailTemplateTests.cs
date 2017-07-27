@@ -1,5 +1,4 @@
 ﻿using System;
-using Posted.LetterTemplates;
 using Xunit;
 
 namespace Posted.Tests
