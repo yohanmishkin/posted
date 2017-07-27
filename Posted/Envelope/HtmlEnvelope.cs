@@ -14,6 +14,9 @@ namespace Posted
             _content = content;
         }
 
+        public HtmlEnvelope(IEnumerable<Stamp> stamps, LetterTemplate template) 
+            : this(stamps, template.Render()) { }
+
         public MailMessage Unwrap()
         {
             var message = new MailMessage

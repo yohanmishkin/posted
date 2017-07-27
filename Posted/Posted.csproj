@@ -32,6 +32,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LetterTemplate.cs" />
+    <Compile Include="LetterTemplates\HtmlEmailTemplate.cs" />
     <Compile Include="MailPerson\DefaultMailPerson.cs" />
     <Compile Include="Envelope.cs" />
     <Compile Include="MailPerson\FakeMailPerson.cs" />
@@ -55,6 +60,9 @@
     <Compile Include="Stamp\StampSubject.cs" />
     <Compile Include="Stamp\StampTo.cs" />
     <Compile Include="Wire.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
