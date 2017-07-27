@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace Posted
+namespace Posted.Wires
 {
     public sealed class SmtpWire : Wire
     {

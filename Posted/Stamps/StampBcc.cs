@@ -1,19 +1,19 @@
 ﻿using System.Net.Mail;
 
-namespace Posted
+namespace Posted.Stamps
 {
-    public sealed class StampCc : Stamp
+    public sealed class StampBcc : Stamp
     {
         private readonly string _recipient;
 
-        public StampCc(string recipient)
+        public StampBcc(string recipient)
         {
             _recipient = recipient;
         }
 
         public void Attach(MailMessage message)
         {
-            message.CC.Add(_recipient);
+            message.Bcc.Add(_recipient);
         }
     }
 }

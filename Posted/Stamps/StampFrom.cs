@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace Posted
+namespace Posted.Stamps
 {
     public sealed class StampFrom : Stamp
     {
