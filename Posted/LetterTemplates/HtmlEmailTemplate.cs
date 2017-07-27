@@ -19,14 +19,14 @@ namespace Posted.LetterTemplates
 
         public string Render()
         {
-            const string expression = "@Model[\\.\\w]+(\\([^)]+\\)*)*";
+            const string expression = "@Model[\\.\\w]+(\\([^)]+\\))*";
             return Regex.Replace(_template, expression, match =>
             {
                 var parameter = Expression.Parameter(_model.GetType(), "@Model");
                 var capturedExpression =
                     DynamicExpression.ParseLambda(new[] { parameter }, null, match.Groups[0].Value);
                 return (capturedExpression.Compile().DynamicInvoke(_model) ?? "").ToString();
-            });
+            }).Replace("@Subject", _subject);
         }
     }
 }
