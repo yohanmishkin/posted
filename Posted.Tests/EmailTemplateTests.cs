@@ -54,7 +54,15 @@ namespace Posted.Tests
             var template = "<h1>@Model.Parent.SimpleChild.Name</h1>";
             var emailTemplate = new EmailTemplate(null, template, model);
 
-            Assert.Throws<ArgumentNullException>(() => emailTemplate.Render());
+            try
+            {
+                emailTemplate.Render();
+            }
+            catch (ArgumentNullException exception)
+            {
+                var expectedMessage = "@Model.Parent.SimpleChild.Name referenced in your email template is null";
+                Assert.Equal(expectedMessage, exception.Message);
+            }
         }
     }
 }

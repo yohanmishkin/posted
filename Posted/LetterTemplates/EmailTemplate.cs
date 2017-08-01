@@ -34,10 +34,8 @@ namespace Posted
                 }
                 catch (TargetInvocationException exception)
                 {
-                    throw
-                        new 
-                            ArgumentNullException("One of the child properties referenced in " +
-                                                    "your email template is null", exception);
+                    var errorMessage = $"{capturedExpression.Body.ToString()} referenced in your email template is null";
+                    throw new ArgumentNullException(errorMessage, exception);
                 }
 
             }).Replace("@Subject", _subject);
