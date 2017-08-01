@@ -1,4 +1,6 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using DynamicExpression = System.Linq.Dynamic.DynamicExpression;
 
@@ -24,8 +26,20 @@ namespace Posted
             {
                 var parameter = Expression.Parameter(_model.GetType(), "@Model");
                 var capturedExpression =
-                    DynamicExpression.ParseLambda(new[] { parameter }, null, match.Groups[0].Value);
-                return (capturedExpression.Compile().DynamicInvoke(_model) ?? "").ToString();
+                    DynamicExpression.ParseLambda(new[] {parameter}, null, match.Groups[0].Value);
+
+                try
+                {
+                    return capturedExpression.Compile().DynamicInvoke(_model).ToString();
+                }
+                catch (TargetInvocationException exception)
+                {
+                    throw
+                        new 
+                            ArgumentNullException("One of the child properties referenced in " +
+                                                    "your email template is null", exception);
+                }
+
             }).Replace("@Subject", _subject);
         }
     }

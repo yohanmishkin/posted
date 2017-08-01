@@ -5,4 +5,6 @@ Object oriented email for .Net
 - Tokens
 	- @Model
 	- @Subject
+
 * Can't chain methods on tokens, but can chain properties
+* Can't reference null properties on email model

@@ -37,6 +37,7 @@ namespace Posted.Tests
                     }
                 }
             };
+
             var template = 
                 "<h1>@Model.Parent.SimpleChild.Name (DOB: @Model.Parent.SimpleChild.DateOfBirth.ToString(\"MM/dd/yy\"))</h1>";
 
@@ -44,6 +45,16 @@ namespace Posted.Tests
             var renderedText = emailTemplate.Render();
             Assert.NotNull(renderedText);
             Assert.Equal("<h1>Charles (DOB: 12/12/12)</h1>", renderedText);
+        }
+
+        [Fact]
+        public void RenderNullChildProperties()
+        {
+            var model = new ComplexClass();
+            var template = "<h1>@Model.Parent.SimpleChild.Name</h1>";
+            var emailTemplate = new EmailTemplate(null, template, model);
+
+            Assert.Throws<ArgumentNullException>(() => emailTemplate.Render());
         }
     }
 }
