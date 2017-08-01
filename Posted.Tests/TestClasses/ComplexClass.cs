@@ -1,4 +1,4 @@
-﻿namespace Posted.Tests
+﻿namespace Posted.Tests.TestClasses
 {
     internal class ComplexClass
     {

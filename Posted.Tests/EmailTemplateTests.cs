@@ -1,4 +1,5 @@
 ﻿using System;
+using Posted.Tests.TestClasses;
 using Xunit;
 
 namespace Posted.Tests

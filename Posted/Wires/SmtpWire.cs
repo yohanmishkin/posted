@@ -11,6 +11,8 @@ namespace Posted
             _host = host;
         }
 
+        public SmtpWire() { }
+
         public SmtpClient Connect()
         {
             return new SmtpClient(_host);

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Posted.Tests
+namespace Posted.Tests.TestClasses
 {
     public class SimpleClass
     {
