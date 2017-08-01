@@ -12,6 +12,8 @@ namespace Posted
         private readonly string _template;
         private readonly object _model;
 
+        public EmailTemplate(string template, object model) : this(null, template, model) { }
+
         public EmailTemplate(string subject, string template, object model)
         {
             _subject = subject;
@@ -30,7 +32,8 @@ namespace Posted
 
                 try
                 {
-                    return capturedExpression.Compile().DynamicInvoke(_model).ToString();
+                    var dynamicInvocation = capturedExpression.Compile().DynamicInvoke(_model);
+                    return (dynamicInvocation ?? string.Empty).ToString();
                 }
                 catch (TargetInvocationException exception)
                 {

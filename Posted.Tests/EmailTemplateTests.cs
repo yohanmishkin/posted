@@ -52,7 +52,7 @@ namespace Posted.Tests
         {
             var model = new ComplexClass();
             var template = "<h1>@Model.Parent.SimpleChild.Name</h1>";
-            var emailTemplate = new EmailTemplate(null, template, model);
+            var emailTemplate = new EmailTemplate(template, model);
 
             try
             {
@@ -63,6 +63,16 @@ namespace Posted.Tests
                 var expectedMessage = "@Model.Parent.SimpleChild.Name referenced in your email template is null";
                 Assert.Equal(expectedMessage, exception.Message);
             }
+        }
+
+        [Fact]
+        public void RenderDynamicInvokeNull()
+        {
+            var model = new SimpleClass() {Name = null};
+            var template = "@Model.Name";
+            var emailTemplate = new EmailTemplate(template, model);
+
+            emailTemplate.Render();
         }
     }
 }
