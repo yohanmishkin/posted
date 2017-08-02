@@ -57,7 +57,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SmtpWireTests - Copy.cs" />
     <Compile Include="TestClasses\ComplexClass.cs" />
     <Compile Include="TestClasses\SimpleClass.cs" />
     <Compile Include="EmailTemplateTests.cs" />
