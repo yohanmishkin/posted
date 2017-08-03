@@ -8,3 +8,19 @@ Object oriented email for .Net
 
 * Can't chain methods on tokens, but can chain properties
 * Can't reference null properties on email model
+
+To configure Smtp host you'd like to use, simply add an entry to your config file like this:
+
+```xml
+<configuration>
+  <system.net>
+    <mailSettings>
+      <smtp>
+        <network 
+          host="localhost"
+          port="25" />
+      </smtp>
+    </mailSettings>
+  </system.net>
+</configuration>
+```
