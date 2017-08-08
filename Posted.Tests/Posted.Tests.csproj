@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StampTests.cs" />
     <Compile Include="TestClasses\ComplexClass.cs" />
     <Compile Include="TestClasses\SimpleClass.cs" />
     <Compile Include="EmailTemplateTests.cs" />

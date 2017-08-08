@@ -1,19 +1,25 @@
-﻿using System.Net.Mail;
+﻿using System.Collections.Generic;
+using System.Net.Mail;
 
 namespace Posted
 {
     public sealed class StampCc : Stamp
     {
-        private readonly string _recipient;
+        private readonly List<string> _recipients;
 
         public StampCc(string recipient)
         {
-            _recipient = recipient;
+            _recipients = new List<string> { recipient };
+        }
+
+        public StampCc(List<string> recipients)
+        {
+            _recipients = recipients;
         }
 
         public void Attach(MailMessage message)
         {
-            message.CC.Add(_recipient);
+            _recipients.ForEach(recipient => message.CC.Add(recipient));
         }
     }
 }
