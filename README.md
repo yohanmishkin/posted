@@ -6,7 +6,7 @@ Object oriented email for .Net
 	- @Model
 	- @Subject
 
-* Can't chain methods on tokens, but can chain properties
+* Can't chain methods on tokens, but can chain properties (property chains are case insensitive)
 * Can't reference null properties on email model
 
 To configure Smtp host you'd like to use, simply add an entry to your config file like this:

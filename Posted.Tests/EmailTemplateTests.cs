@@ -69,8 +69,18 @@ namespace Posted.Tests
         [Fact]
         public void RenderDynamicInvokeNull()
         {
-            var model = new SimpleClass() {Name = null};
+            var model = new SimpleClass {Name = null};
             var template = "@Model.Name";
+            var emailTemplate = new EmailTemplate(template, model);
+
+            emailTemplate.Render();
+        }
+
+        [Fact]
+        public void DynamicInvocationCaseInsensitive()
+        {
+            var model = new SimpleClass { Name = null };
+            var template = "@Model.name";
             var emailTemplate = new EmailTemplate(template, model);
 
             emailTemplate.Render();
