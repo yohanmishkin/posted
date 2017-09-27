@@ -11,5 +11,21 @@ namespace Posted.Tests
             var transport = wire.Connect();
             Assert.NotNull(transport.Host);
         }
+
+        [Fact]
+        public void UseDefaultCredentials()
+        {
+            var wire = new SmtpWire();
+            var smtpClient = wire.Connect();
+            Assert.False(smtpClient.UseDefaultCredentials);
+
+            wire = new SmtpWire("hosthosthost");
+            smtpClient = wire.Connect();
+            Assert.True(smtpClient.UseDefaultCredentials);
+
+            wire = new SmtpWire("hosthosthost", false);
+            smtpClient = wire.Connect();
+            Assert.False(smtpClient.UseDefaultCredentials);
+        }
     }
 }
